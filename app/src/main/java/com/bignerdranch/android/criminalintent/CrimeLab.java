@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+// синглетный (singleton) класс.
+// Такие классы допускают создание только одного экземпляра .
+
 public class CrimeLab {
 
   private static CrimeLab sCrimeLab;
