@@ -1,6 +1,7 @@
 package com.bignerdranch.android.criminalintent;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +71,10 @@ public class CrimeListFragment extends Fragment {
         {
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
-            mDateTextView.setText(mCrime.getDate().toString());
+            // упражнение стр. 220
+            String dateString = DateFormat.format("EEEE, MMM d, yyyy", mCrime.getDate()).toString();
+            mDateTextView.setText(dateString);
+            //
             mSolvedImageView.setVisibility((mCrime.isSolved()? View.VISIBLE: View.GONE));
         }
 

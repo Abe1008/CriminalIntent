@@ -9,4 +9,6 @@
     <string name="crime_item_title">Crime titile</string>
     <string name="crime_item_date">Crime date</string>
 
+    <string name="text_todo">ToDo</string>
+
 </resources>
