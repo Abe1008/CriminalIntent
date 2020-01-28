@@ -19,17 +19,31 @@ import androidx.fragment.app.Fragment;
 
 public class CrimeFragment extends Fragment {
 
+    private static final String ARG_CRIME_ID = "crime_id";
+
     private Crime       mCrime;
     private EditText    mTitleField;
     private Button      mDateButton;
     private CheckBox    mSolvedCheckBox;
 
+    public static CrimeFragment newInstance(UUID crimeId)
+    {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_CRIME_ID, crimeId);
+
+        CrimeFragment fragment = new CrimeFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /// mCrime = new Crime();
-        UUID crimeID = (UUID) getActivity().getIntent().getSerializableExtra(CrimeActivity.EXTRA_CRIME_ID);
-        mCrime = CrimeLab.get(getActivity()).getCrime(crimeID);
+        /// UUID Id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeActivity.EXTRA_CRIME_ID);
+        Bundle args = getArguments();   // свёрток аргументов (arguments bundle)
+        UUID crimeId = (UUID) args.getSerializable(ARG_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Nullable
