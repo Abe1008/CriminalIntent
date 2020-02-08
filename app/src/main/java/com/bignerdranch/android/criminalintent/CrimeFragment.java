@@ -40,7 +40,7 @@ public class CrimeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /// mCrime = new Crime();
-        /// UUID Id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeActivity.EXTRA_CRIME_ID);
+        /// UUID Id = (UUID) getActivity().getIntent().getSerializableExtra(....EXTRA_CRIME_ID);
         Bundle args = getArguments();   // свёрток аргументов (arguments bundle)
         UUID crimeId = (UUID) args.getSerializable(ARG_CRIME_ID);
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
